@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        li{
+            float: left;
+            margin: 8px;
+        }
+        img{
+            width: 150px;
+            height: 230px;
+            object-fit: cover;
+        }
+        ul li:hover{
+            transform: scale(1.2);
+        }
+        ul li{
+            background: #ccc;
+            transition: all .5s;
+        }
+        ul li div.tip{
+            width: 150px;
+            height: 20px;
+        }
+        span.title{
+            float: left;
+
+        }
+        span.num{
+            float: right;
+        }
+        body{
+            background: #929292;
+        }
+        .wrapper{
+            background-color: #fff;
+            width: 499px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper clearfix">
+        <ul>
+        </ul>
+    </div>
+    <script>
+        data =[
+            {
+                src: '../img/1.jpg',
+                title: '北京',
+                num:898
+            },
+            {
+                src: '../img/2.jpg',
+                title: '上海',
+                num:1938
+            }, 
+            {
+                src: '../img/3.jpg',
+                title: '深圳',
+                num:2298
+            },
+             {
+                src: '../img/4.jpg',
+                title: '长沙',
+                num:2748
+            }, 
+            {
+                src: '../img/5.jpg',
+                title: '成都',
+                num:1432
+            } 
+        ]
+        const ul = document.querySelector('ul');
+        // 根据数据的个数，创建li的个数
+        for(let i = 0;i<data.length;i++){
+            const li =document.createElement('li');
+            li.innerHTML =`
+            <div class="container">
+                <img src="../img/${i+1}.jpg" alt="">
+            </div>
+            <div class="tip">
+                <span class="title">${data[i].title}</span>
+                <span class="num">${data[i].num}</span>
+                </div>
+            `
+            ul.appendChild(li);
+        }
+    </script>
+</body>
+</html>
